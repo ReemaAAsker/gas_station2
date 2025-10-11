@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gas_station2/screens/payment.dart';
+import 'package:gas_station2/screens/card_details_screen.dart';
 
 void main(List<String> args) {
   runApp(APP());
