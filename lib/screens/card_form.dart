@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gas_station2/screens/wallet%20screen.dart';
 import 'package:gas_station2/widgets/custom_primary_button.dart';
 import 'package:gas_station2/widgets/orange_text_feild.dart';
+import '../utils/constants.dart' show primaryColor;
 import 'amount_summary.dart';
 
 class CardForm extends StatefulWidget {
@@ -21,6 +22,20 @@ class _CardFormState extends State<CardForm> {
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
+      ScaffoldMessenger.of(context)
+        ..hideCurrentSnackBar()
+        ..showSnackBar(
+          SnackBar(
+            content: Text(
+              'the order is placed',
+              style: const TextStyle(color: Colors.white),
+            ),
+            backgroundColor: primaryColor,
+            behavior: SnackBarBehavior.floating,
+            margin: const EdgeInsets.all(12),
+            duration: const Duration(seconds: 2),
+          ),
+        );
       // All validations passed
       Navigator.push(
         context,

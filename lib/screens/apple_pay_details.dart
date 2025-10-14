@@ -27,6 +27,20 @@ class ApplePayDetails extends StatelessWidget {
           child: CustomPrimaryButton(
             label: "Place Order",
             onPressed: () {
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'the order is placed',
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    backgroundColor: primaryColor,
+                    behavior: SnackBarBehavior.floating,
+                    margin: const EdgeInsets.all(12),
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => WalletScreen()),
